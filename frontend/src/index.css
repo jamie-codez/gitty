@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-size: cover;
+    background:  no-repeat fixed center linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url('../public/bg.png');
+}
+
+/** Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background:  no-repeat fixed center linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url('/bg.png');
+    }
+}
+
+/** Dark mode scrollbar */
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #555555;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #121212;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #242424;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #555555;
+}
+::-webkit-scrollbar-thumb {
+    background: #121212;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #242424;
+}
+
+
+
