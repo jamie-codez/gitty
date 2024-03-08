@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import {Spinner} from "../components/Spinner.jsx";
 import {AiOutlineFork, AiOutlineStar} from "react-icons/ai";
 import {ExploreRepoCard} from "../components/ExploreRepoCard.jsx";
+import {Repos} from "../components/Repos.jsx";
 
 export const ExplorePage = () => {
     const [selectedLanguage, setSelectedLanguage] = useState();
@@ -12,6 +13,7 @@ export const ExplorePage = () => {
 
     const exploreRepos = useCallback(async (language) => {
         setIsLoading(true);
+        setSelectedLanguage(selectedLanguage);
         setRepos([]);
         try {
             const response = await fetch(`https://api.github.com/search/repositories?q=stars:>1000+language:${language}&sort=stars&order=desc&per_page=10`);
@@ -27,6 +29,11 @@ export const ExplorePage = () => {
         }
     }, []);
 
+    const handleLanguageClick = (e) => {
+        setSelectedLanguage(e.target.textContent);
+        exploreRepos(selectedLanguage).then(() => console.log('data fetched successfully'));
+    }
+
     useEffect(() => {
         exploreRepos(selectedLanguage).then(() => console.log('data fetched successfully'));
     }, [exploreRepos]);
@@ -35,22 +42,22 @@ export const ExplorePage = () => {
         <div className='px-4'>
             <div className='bg-glass max-w-2xl mx-auto rounded-md p-4'>
                 <h1 className='text-xl font-bold text-center'>Explore Popular Repositories</h1>
-                <div className='flex flex-wrap gap-2 my-2 justify-center'>
+                <div className='flex flex-wrap gap-2 my-2 justify-center' onClick={(e) => handleLanguageClick(e)}>
                     {Object.keys(programmingLanguages).map((language) => (
                         <span
                             key={language}
                             className='cursor-pointer bg-glass text-md font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1'
                         >
-                            <img src={programmingLanguages[language]} alt={language} className='h-10 w-10'/>
+                            <img src={programmingLanguages[language]} alt={language} className='h-10 w-10' onClick={e=>handleLanguageClick(e)}/>
                             {language}
                         </span>
                     ))}
                 </div>
             </div>
-            {repos.length > 0 ? (
+            {repos?.length > 0 ? (
                 <div className='mt-4'>
-                    <h1 className='text-xl font-bold text-center'>Top 10 Repositories</h1>
-                    <div className='flex flex-col md:flex-cols lg:flex-col gap-2'>
+                    <h1 className='text-xl font-bold text-center'>Top 10 {selectedLanguage} Repositories</h1>
+                    <div className='flex flex-col md:flex-col lg:flex-col'>
                         {repos.map((repo) => (
                             <ExploreRepoCard key={repo.id} repo={repo}/>
                         ))}
