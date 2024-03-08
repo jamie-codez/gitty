@@ -9,6 +9,12 @@ export const ExplorePage = () => {
                     <img src='/c++.svg' alt='C++ logo' className='h-11 sm:h-20 cursor-pointer' />
                     <img src='/python.svg' alt='Python logo' className='h-11 sm:h-20 cursor-pointer' />
                     <img src='/java.svg' alt='Java logo' className='h-11 sm:h-20 cursor-pointer' />
+                    <img src='/go.svg' alt='Go logo' className='h-11 sm:h-20 cursor-pointer' />
+                    <img src='/ruby.svg' alt='Ruby logo' className='h-11 sm:h-20 cursor-pointer' />
+                    <img src='/php.svg' alt='PHP logo' className='h-11 sm:h-20 cursor-pointer' />
+                    <img src='/swift.svg' alt='Swift logo' className='h-11 sm:h-20 cursor-pointer' />
+                    <img src='/rust.svg' alt='Rust logo' className='h-11 sm:h-20 cursor-pointer' />
+                    <img src='/kotlin.svg' alt='Kotlin logo' className='h-11 sm:h-20 cursor-pointer'/>
                 </div>
             </div>
         </div>
