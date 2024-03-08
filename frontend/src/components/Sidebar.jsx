@@ -3,6 +3,7 @@ import {IoHomeSharp} from "react-icons/io5";
 import {FaHeart} from "react-icons/fa6";
 import {PiSignInBold} from "react-icons/pi";
 import {MdEditDocument, MdOutlineExplore} from "react-icons/md";
+import {Logout} from "./Logout.jsx";
 
 export const Sidebar = () => {
     const authUser = false;
