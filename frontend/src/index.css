@@ -4,8 +4,9 @@
 
 body {
     font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url('../public/bg.png') no-repeat fixed center;
     background-size: cover;
-    background:  no-repeat fixed center linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url('../public/bg.png');
+    color: #fff;
 }
 
 /** Dark mode */
