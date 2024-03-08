@@ -1,3 +1,5 @@
+import {Search} from "../components/Search.jsx";
+
 export const HomePage = () => {
     return (
         <div className='m-4'>
