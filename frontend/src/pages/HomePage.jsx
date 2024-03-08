@@ -1,6 +1,8 @@
 import {Search} from "../components/Search.jsx";
 import {ProfileInfo} from "../components/ProfileInfo.jsx";
 import {Repos} from "../components/Repos.jsx";
+import {SortRepos} from "../components/SortRepos.jsx";
+import {Spinner} from "../components/Spinner.jsx";
 
 export const HomePage = () => {
     return (

@@ -1,7 +1,7 @@
 import { FaCodeBranch, FaCopy, FaRegStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 
-const Repo = () => {
+export const Repo = () => {
     return (
         <li className='mb-10 ms-7'>
 			<span

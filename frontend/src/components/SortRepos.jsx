@@ -1,4 +1,4 @@
-const SortRepos = () => {
+export const SortRepos = () => {
     return (
         <div className='mb-2 flex justify-center lg:justify-end'>
             <button
