@@ -1,4 +1,6 @@
 import {Search} from "../components/Search.jsx";
+import {ProfileInfo} from "../components/ProfileInfo.jsx";
+import {Repos} from "../components/Repos.jsx";
 
 export const HomePage = () => {
     return (
