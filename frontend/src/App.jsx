@@ -8,6 +8,7 @@ import {RegisterPage} from "./pages/RegisterPage.jsx";
 import {LoginPage} from "./pages/LoginPage.jsx";
 import {HomePage} from "./pages/HomePage.jsx";
 import {Sidebar} from "./components/Sidebar.jsx";
+import {Toaster} from "react-hot-toast";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                     <Route path={'/about'} element={<AboutPage/>}/>
                     <Route path={'/settings'} element={<SettingsPage/>}/>
                 </Routes>
+                <Toaster/>
             </div>
         </div>
     )
