@@ -12,7 +12,9 @@ body {
 /** Dark mode */
 @media (prefers-color-scheme: dark) {
     body {
-        background:  no-repeat fixed center linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url('/bg.png');
+        background:  no-repeat center linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url('/bg.png');
+        background-size: cover;
+        background-attachment: fixed;
     }
 }
 

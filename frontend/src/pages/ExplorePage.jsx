@@ -1,15 +1,16 @@
 import {programmingLanguages} from "../utils/constants.js";
-import {useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import toast from "react-hot-toast";
 import {Spinner} from "../components/Spinner.jsx";
 import {AiOutlineFork, AiOutlineStar} from "react-icons/ai";
+import {ExploreRepoCard} from "../components/ExploreRepoCard.jsx";
 
 export const ExplorePage = () => {
     const [selectedLanguage, setSelectedLanguage] = useState();
     const [repos, setRepos] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const exploreRepos = async (language) => {
+    const exploreRepos = useCallback(async (language) => {
         setIsLoading(true);
         setRepos([]);
         try {
@@ -24,7 +25,11 @@ export const ExplorePage = () => {
         }finally {
             setIsLoading(false);
         }
-    };
+    }, []);
+
+    useEffect(() => {
+        exploreRepos(selectedLanguage).then(() => console.log('data fetched successfully'));
+    }, [exploreRepos]);
 
     return (
         <div className='px-4'>
@@ -45,30 +50,9 @@ export const ExplorePage = () => {
             {repos.length > 0 ? (
                 <div className='mt-4'>
                     <h1 className='text-xl font-bold text-center'>Top 10 Repositories</h1>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                    <div className='flex flex-col md:flex-cols lg:flex-col gap-2'>
                         {repos.map((repo) => (
-                            <div key={repo.id} className='bg-glass rounded-md p-4'>
-                                <a href={repo.html_url} target='_blank' rel='noreferrer'>
-                                    <h1 className='text-lg font-bold'>{repo.name}</h1>
-                                </a>
-                                <p className='text-sm'>{repo.description}</p>
-                                <div className='flex justify-between items-center mt-2'>
-                                    <div className='flex gap-2 items-center'>
-                                        <img src={repo.owner.avatar_url} alt={repo.owner.login} className='h-8 w-8 rounded-full'/>
-                                        <p className='text-sm'>{repo.owner.login}</p>
-                                    </div>
-                                    <div className='flex gap-2 items-center'>
-                                        <span className='flex gap-1 items-center'>
-                                            <AiOutlineStar size={20}/>
-                                            <p>{repo.stargazers_count}</p>
-                                        </span>
-                                        <span className='flex gap-1 items-center'>
-                                            <AiOutlineFork size={20}/>
-                                            <p>{repo.forks_count}</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            <ExploreRepoCard key={repo.id} repo={repo}/>
                         ))}
                     </div>
                 </div>
